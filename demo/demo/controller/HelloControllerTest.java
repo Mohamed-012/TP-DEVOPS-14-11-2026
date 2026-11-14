@@ -1,5 +1,5 @@
 
-package com.example.demo.controller;
+package com.tp.demo.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +18,15 @@ class HelloControllerTest {
 
     @Test
     void testHelloEndpoint() throws Exception {
-
         mockMvc.perform(get("/hello"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Hello DevOps!"));
+                .andExpect(content().string("Greetings, DevOps!"));
+    }
+
+    @Test
+    void testVersionEndpoint() throws Exception {
+        mockMvc.perform(get("/version"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("1.0.0"));
     }
 }
